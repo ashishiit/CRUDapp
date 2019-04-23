@@ -13,10 +13,13 @@ export class AppComponent {
   constructor(private api: ApiService){
       this.getMovies();
   }
-  getMovies() = () =>{
-      this.api.getAllMovies().this.subscribe()
+  getMovies = () => {
+      this.api.getAllMovies().subscribe(
       data => {
-          
+          this.movies = data;
+      },
+      error => {
+          console.log(error);
       }
-  }
-}
+      )
+}}
